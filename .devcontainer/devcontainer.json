@@ -1,9 +1,13 @@
 {
   "name": "atg-eam-test",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USER_ID": "${localEnv:USER_ID}",
+      "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+    }
   },
-  "workspaceFolder": "/app",
+  "workspaceFolder": "/app/eam-test",
   "customizations": {
     "vscode": {
       "extensions": [
