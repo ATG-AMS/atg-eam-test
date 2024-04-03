@@ -1,19 +1,20 @@
 # Node.js LTS Bullseye 이미지를 가져옵니다.
 FROM mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye
 
-LABEL org.opencontainers.image.source=https://github.com/ATG-AMS/atg-eam-test
-# npm 버전을 최신 안정 버전으로 설정합니다.
-RUN npm install -g npm@latest --no-cache
+# 소스 코드의 출처를 표시합니다.
+LABEL org.opencontainers.image.source="https://github.com/ATG-AMS/atg-eam-test"
 
-# git을 설치합니다.
-RUN apt-get update && apt-get install -y git
+# npm을 최신 안정 버전으로 업데이트하고 git을 설치합니다.
+# apt-get install에서 발생할 수 있는 대화형 프롬프트를 방지하기 위해 DEBIAN_FRONTEND 환경 변수를 noninteractive로 설정합니다.
+RUN npm install -g npm@latest --no-cache && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y git && \
+    rm -rf /var/lib/apt/lists/*
 
 USER node
 
-# 스크립트 파일을 /scripts 디렉토리에 복사합니다.
+# 스크립트 파일을 /scripts 디렉토리에 복사하고 실행 가능하게 만듭니다.
 COPY --chown=node:node script.sh healthcheck.sh /scripts/
-
-# 스크립트 파일을 실행 가능하게 만듭니다.
 RUN chmod +x /scripts/script.sh /scripts/healthcheck.sh
 
 # 작업 디렉토리를 설정합니다.
@@ -24,7 +25,7 @@ EXPOSE 5000
 EXPOSE 5050
 
 # HEALTHCHECK를 설정합니다.
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD /scripts/healthcheck.sh
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD ["/scripts/healthcheck.sh"]
 
 # 컨테이너가 시작될 때 script.sh를 실행합니다.
 CMD [ "sh", "/scripts/script.sh" ]
