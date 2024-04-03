@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.source=https://github.com/ATG-AMS/atg-eam-test
 RUN npm install -g npm@latest --no-cache
 
 # git을 설치합니다.
-RUN apt-get update && apt-get install git
+RUN apt-get update && apt-get install -y git
 
 USER node
 
