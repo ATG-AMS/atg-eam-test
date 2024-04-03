@@ -49,8 +49,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
         with:
-          context: . # 현재 GitHub Actions 러너의 작업 디렉토리를 가리킵니다.
-          file: ./.devcontainer/Dockerfile # Dockerfile의 상대 경로를 정확히 지정합니다.
+          context: . 
+          file: ./.devcontainer/DockerFile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
