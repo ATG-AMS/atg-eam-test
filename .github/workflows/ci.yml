@@ -28,11 +28,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get the date
-        id: date
         run: |
           echo "VERSION_DATE=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
           echo "version_date=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-          echo "VERSION=$(date +'%Y%m%d%H%M%S')" > $GITHUB_ENV/version
+          echo "VERSION=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
         with:
