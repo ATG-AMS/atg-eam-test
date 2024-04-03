@@ -12,8 +12,8 @@ cd /app
 git clone https://${USER_ID}:${GITHUB_TOKEN}@${GITHUB_REPOSITORY} eam-test
 cd eam-test
 
-# 'dev' 브랜치로 전환합니다.
-git checkout dev
+# 'main' 브랜치로 전환합니다.
+git checkout main
 
 # 애플리케이션 종속성을 설치합니다.
 npm install
