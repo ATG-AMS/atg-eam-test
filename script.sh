@@ -8,9 +8,11 @@ GITHUB_REPOSITORY="github.com/ATG-AMS/eam-test.git"
 # 작업 디렉토리를 '/app'으로 변경합니다.
 cd /app
 
-# '/usr/src/app' 내에 'donghae-front' 디렉토리를 만들고, 그곳에 레포지토리를 클론합니다.
-git clone https://${USER_ID}:${GITHUB_TOKEN}@${GITHUB_REPOSITORY} --config core.askPass=true /app
+# 레포지토리를 클론합니다.
+git clone https://${USER_ID}:${GITHUB_TOKEN}@${GITHUB_REPOSITORY} eam-test
+cd eam-test
 
+# 'dev' 브랜치로 전환합니다.
 git checkout dev
 
 # 애플리케이션 종속성을 설치합니다.
