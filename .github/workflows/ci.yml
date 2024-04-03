@@ -50,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v2 # v5로 되어있는데, 최신 버전 확인 필요
         with:
           context: .
-          file: ./.devcontainer/Dockerfile
+          file: ../.devcontainer/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
