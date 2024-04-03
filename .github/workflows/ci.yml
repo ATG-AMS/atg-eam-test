@@ -34,7 +34,7 @@ jobs:
           echo "version_date=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
           echo "VERSION=$(date +'%Y%m%d%H%M%S')" > $GITHUB_ENV/version
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v3 # Node.js 버전 관련 경고를 해결하기 위해 최신 버전을 사용합니다.
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: ./.devcontainer/Dockerfile
