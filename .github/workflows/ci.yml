@@ -34,7 +34,7 @@ jobs:
           echo "version=$(date +"%Y%m%d%H%M%S")" >> $GITHUB_OUTPUT
 
       - name: Build and release devcontainer Multi-Platform
-        uses: devcontainers/ci@v0.3.1900000329
+        uses: devcontainers/ci@v0.3.1900000348
         # env:
         #   BUILDX_NO_DEFAULT_ATTESTATIONS: true
         with:
