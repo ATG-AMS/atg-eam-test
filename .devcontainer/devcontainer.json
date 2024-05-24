@@ -2,6 +2,7 @@
   "name": "atg-eam-test",
   "build": {
     "dockerfile": "Dockerfile",
+    "workspaceFolder": "/app/eam-test",
     "args": {
       "USER_ID": "${localEnv:USER_ID}",
       "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
