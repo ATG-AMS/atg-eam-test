@@ -4,7 +4,6 @@
     "dockerfile": "Dockerfile",
     "workspaceFolder": "/app/eam-test",
   },
-  "workspaceFolder": "/app/eam-test",
   "customizations": {
     "vscode": {
       "extensions": [
