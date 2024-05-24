@@ -1,9 +1,9 @@
 {
   "name": "atg-eam-test",
   "build": {
-    "dockerfile": "Dockerfile",
-    "workspaceFolder": "/app/eam-test",
+    "dockerfile": "Dockerfile"
   },
+  "workspaceFolder": "/app/eam-test",
   "customizations": {
     "vscode": {
       "extensions": [
